@@ -1,0 +1,20 @@
+apiVersion: apps/v1 
+kind: Deployment
+metadata:
+  name: a-service
+  namespace: a-service
+spec:
+  selector:
+    matchLabels:
+      app: a-service
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: a-service
+    spec:
+      containers:
+      - name: a-service
+        image: quay.io/bjoydeep/a-service:latest
+        ports:
+        - containerPort: 8080

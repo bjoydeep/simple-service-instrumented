@@ -1,0 +1,14 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: a-service
+  namespace: openshift-monitoring
+spec:
+  endpoints:
+    - port: http
+      interval: 60s
+      scrapeTimeout: 10s
+  namespaceSelector:
+    matchNames:
+      - a-service
+  selector: {}
